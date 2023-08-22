@@ -4,6 +4,8 @@ import { getImages, getImagesNext } from './fetch-images';
 let form = document.querySelector('.search-form');
 let gallery = document.querySelector('.gallery');
 let btnLoad = document.querySelector('[js-load]');
+let page = 1;
+
 // Function on search
 form.addEventListener('submit', evt => {
   evt.preventDefault();
@@ -19,8 +21,12 @@ function setMarkup(response) {
   response
     .then(images => {
       if (images.totalHits == 0) {
-        console.log('Not found!!!');
+        alert('Not found!!!');
         return;
+      }
+      if (images.totalHits <= 40 * page) {
+        alert("We're sorry, but you've reached the end of search results.");
+        btnLoad.classList.add('invisible');
       }
       gallery.innerHTML = images.hits
         .map(image => {
@@ -39,6 +45,11 @@ function setMarkupNext(response) {
       if (images.totalHits == 0) {
         console.log('Not found!!!');
         return;
+      }
+      page += 1;
+      if (images.totalHits <= 40 * page) {
+        alert("We're sorry, but you've reached the end of search results.");
+        btnLoad.classList.add('invisible');
       }
       gallery.innerHTML += images.hits
         .map(image => {
