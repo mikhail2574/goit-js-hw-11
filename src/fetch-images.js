@@ -5,6 +5,10 @@ const BASE_URL = 'https://pixabay.com/api/';
 let page = 1;
 
 export async function getImages(text) {
+  if (!text || text == ' ') {
+    alert("Don't do it!");
+    return;
+  }
   const params = new URLSearchParams({
     q: text,
     key: '38966446-c32fc19d0a971996be7b08c24',
@@ -18,6 +22,7 @@ export async function getImages(text) {
 }
 export async function getImagesNext(text) {
   page += 1;
+
   const params = new URLSearchParams({
     q: text,
     key: '38966446-c32fc19d0a971996be7b08c24',

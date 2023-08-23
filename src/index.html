@@ -10,14 +10,23 @@
   </head>
   <body>
     <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button type="submit">Search</button>
-
+      <div class="search-header">
+        <input
+          class="img-input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button class="img-btn" type="submit">
+          <img
+            src="./images/icons8-search.svg"
+            alt="search"
+            width="20"
+            height="20"
+          />
+        </button>
+      </div>
       <div class="gallery">
         <!-- ##Image cards## -->
       </div>

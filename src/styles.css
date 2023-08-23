@@ -49,3 +49,30 @@ button.invisible {
 .info-item b {
   font-size: 12px;
 }
+
+.search-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 50px;
+  background-color: cadetblue;
+}
+
+.img-input {
+  height: 30px;
+  position: relative;
+  width: 20%;
+  border: none;
+}
+
+.img-btn {
+  height: 30px;
+  width: 30px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
