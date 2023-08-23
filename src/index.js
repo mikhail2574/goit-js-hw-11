@@ -45,16 +45,19 @@ function setMarkup(response) {
 function setMarkupNext(response) {
   response
     .then(images => {
-      if (images.totalHits == 0) {
+      const {
+        data: { hits, totalHits },
+      } = images;
+      if (totalHits == 0) {
         console.log('Not found!!!');
         return;
       }
       page += 1;
-      if (images.totalHits <= 40 * page) {
+      if (totalHits <= 40 * page) {
         alert("We're sorry, but you've reached the end of search results.");
         btnLoad.classList.add('invisible');
       }
-      gallery.innerHTML += images.hits
+      gallery.innerHTML += hits
         .map(image => {
           return setImage(image);
         })

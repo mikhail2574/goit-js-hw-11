@@ -1,26 +1,31 @@
 // ## Initializing ##
 import axios from 'axios';
 const BASE_URL = 'https://pixabay.com/api/';
-API_KEY = '38966446-c32fc19d0a971996be7b08c24';
 
-const image_type = 'photo';
-const orientation = 'horizontal';
-const safesearch = true;
-const per_page = 40;
 let page = 1;
 
 export async function getImages(text) {
-  return await axios.get(
-    `${BASE_URL}?key=${API_KEY}&image_type=${image_type}&q=${text}&orientation=${orientation}&safesearch=${safesearch}&per_page=${per_page}&page=1`
-  );
+  const params = new URLSearchParams({
+    q: text,
+    key: '38966446-c32fc19d0a971996be7b08c24',
+    image_type: 'photo',
+    orientation: 'horizontal',
+    safesearch: true,
+    per_page: 40,
+    page: page,
+  });
+  return await axios.get(`${BASE_URL}?${params}`);
 }
-export function getImagesNext(text) {
+export async function getImagesNext(text) {
   page += 1;
-  return fetch(
-    `${BASE_URL}?key=${API_KEY}&image_type=${image_type}&q=${text}&orientation=${orientation}&safesearch=${safesearch}&per_page=${per_page}&page=${page}`
-  )
-    .then(response => response.json())
-    .catch(error => {
-      throw error;
-    });
+  const params = new URLSearchParams({
+    q: text,
+    key: '38966446-c32fc19d0a971996be7b08c24',
+    image_type: 'photo',
+    orientation: 'horizontal',
+    safesearch: true,
+    per_page: 40,
+    page: page,
+  });
+  return await axios.get(`${BASE_URL}?${params}`);
 }
