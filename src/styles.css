@@ -7,6 +7,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  margin-bottom: 100px;
+}
+
 button.invisible {
   display: none;
 }
@@ -24,9 +28,26 @@ button.invisible {
   -moz-box-shadow: 5px 4px 19px 6px rgba(150, 150, 150, 0.63);
 }
 
+.load-btn {
+  margin-top: 30px;
+  margin-left: 30px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-btn:hover {
+  background-color: #0056b3;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 50px;
 }
 
